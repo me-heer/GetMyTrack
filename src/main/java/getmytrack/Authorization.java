@@ -4,16 +4,14 @@ import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.credentials.ClientCredentials;
 import com.wrapper.spotify.requests.authorization.client_credentials.ClientCredentialsRequest;
-import com.neovisionaries.i18n.CountryCode;
-import com.wrapper.spotify.model_objects.specification.Paging;
-import com.wrapper.spotify.model_objects.specification.Track;
-import com.wrapper.spotify.requests.data.search.simplified.SearchTracksRequest;
-
 
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
+
+import javax.sound.midi.SysexMessage;
 
 class Authorization {
   private static final String clientId = "a0ac3f1c6676404890e169170cfe4b0a"; //replace with your clientID and
@@ -61,7 +59,7 @@ class Authorization {
 
   public static void main(String[] args){
       Authorization.clientCredentials_Sync();
-      SearchTracks.searchTracks_Sync();
+      SearchTracks.searchItem_Sync(); 
   }
 }
 
