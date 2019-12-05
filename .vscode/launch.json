@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Authorization",
+            "request": "launch",
+            "mainClass": "getmytrack.Authorization",
+            "projectName": "getmytrack"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - GetAccessToken",
             "request": "launch",
             "mainClass": "getmytrack.GetAccessToken",
