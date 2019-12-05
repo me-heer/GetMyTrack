@@ -55,7 +55,11 @@ class SearchTracks{
                   
   public static void searchItem_Sync() {
     try {
-      final SearchResult searchResult = searchItemRequest.execute();
+      SearchItemRequest.Builder mySearch = new SearchItemRequest.Builder(accessToken);
+      mySearch.q(q).type("artist,track");
+      //final SearchResult searchResult = searchItemRequest.execute();
+      SearchItemRequest mySIR = mySearch.build();
+      final SearchResult searchResult = mySIR.execute();
       Paging<Track> tracks = searchResult.getTracks();
       Track[] myTracks = tracks.getItems();
       for(int i = 0; i < myTracks.length; i++)
@@ -65,7 +69,7 @@ class SearchTracks{
         {
           System.out.print(myArtists[j].getName() + ", ");  
         }
-        System.out.println(" - " + myTracks[i].getName());
+        System.out.println("\b\b - " + myTracks[i].getName());
       }
       System.out.println("Total tracks: " + searchResult.getTracks().getTotal());
     } catch (IOException | SpotifyWebApiException e) {
